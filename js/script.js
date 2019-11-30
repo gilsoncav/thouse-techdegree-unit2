@@ -60,13 +60,26 @@ function totalPages() {
 ***/
 
 function appendPageLinks() {
+  // creating the containers tags...
   const divPagination = document.createElement('div');
   divPagination.className = 'pagination';
   const ulPagesButtons = document.createElement('ul');
-  const startIndex = studentListItems.indexOf(li => li.styles.display === '');
+  divPagination.appendChild(ulPagesButtons);
+
+  // creating the pages buttons...
+  for (let i = 0; i < totalPages(); i++) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#';
+    a.textContent = i + 1;
+    li.appendChild(a);
+    ulPagesButtons.appendChild(li);
+  }
+  document.querySelector('.page').appendChild(divPagination);
 }
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
 
 hideAll(studentListItems);
 showPage(studentListItems, 6);
+appendPageLinks();
