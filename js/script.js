@@ -116,9 +116,11 @@ function appendSearch() {
   divPageHeader.appendChild(divStudentSearch);
 
   // Add listener for the user typing...
-  inputTag.addEventListener('keyup', e => {
-    filterStudentsByName(inputTag.value);
-  });
+  inputTag.addEventListener('keyup', e => filterStudentsByName(inputTag.value));
+  // add listener for the button click
+  btnSearch.addEventListener('click', e =>
+    filterStudentsByName(inputTag.value)
+  );
 }
 
 function filterStudentsByName(nameSearched) {
