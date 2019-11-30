@@ -76,6 +76,16 @@ function appendPageLinks() {
     ulPagesButtons.appendChild(li);
   }
   document.querySelector('.page').appendChild(divPagination);
+
+  ulPagesButtons.addEventListener('click', e => {
+    if (e.target.tagName === 'A') {
+      const allLinks = Array.from(
+        e.target.parentNode.parentNode.querySelectorAll('a')
+      );
+      allLinks.forEach(a => (a.className = ''));
+      e.target.className = 'active';
+    }
+  });
 }
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
