@@ -117,3 +117,7 @@ body {
   background-color: #4ba6c3;
   color: #fff;
 }
+
+.highlight {
+  color: rgb(228, 111, 9);
+}
