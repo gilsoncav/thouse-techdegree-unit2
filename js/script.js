@@ -94,10 +94,11 @@ function appendPageLinks(list) {
     const pNotFound = document.querySelector('.js-not-found');
     if (pNotFound) pNotFound.parentNode.removeChild(pNotFound);
   } else {
-    //TODO add a refined treatment when nothing was found
     let pNotFound = document.createElement('p');
     pNotFound.className = 'js-not-found';
     pNotFound.textContent = 'No students found!  :(';
+    pNotFound.style.textAlign = 'center';
+    pNotFound.style.fontSize = '20px';
     document.querySelector('.page').appendChild(pNotFound);
   }
 }
