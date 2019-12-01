@@ -91,11 +91,20 @@ function appendPageLinks(list) {
         showPage(list, parseInt(e.target.textContent));
       }
     });
+    const pNotFound = document.querySelector('.js-not-found');
+    if (pNotFound) pNotFound.parentNode.removeChild(pNotFound);
   } else {
     //TODO add a refined treatment when nothing was found
+    let pNotFound = document.createElement('p');
+    pNotFound.className = 'js-not-found';
+    pNotFound.textContent = 'No students found!  :(';
+    document.querySelector('.page').appendChild(pNotFound);
   }
 }
 
+/**
+ * Append search components on the screen
+ */
 function appendSearch() {
   // gets the target DIV
   const divPageHeader = document.querySelector('.page-header');
@@ -123,6 +132,12 @@ function appendSearch() {
   );
 }
 
+/**
+ * Filter the original array of students items on the screen using a
+ * screen to match
+ *
+ * @param {string} nameSearched the name to match against the students names
+ */
 function filterStudentsByName(nameSearched) {
   if (nameSearched && nameSearched !== '') {
     resetOriginalH3HTML();
